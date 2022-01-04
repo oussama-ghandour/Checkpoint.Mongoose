@@ -56,7 +56,7 @@ exports.UpdateContacts =
   async (req, res) => {
     const { id } = req.params;
     try {
-      const updated = ContactSchema.findByIdAndUpdate(id, {
+      const updated = await  ContactSchema.findByIdAndUpdate(id, {
         $set: { ...req.body },
       });
       res.status(200).send({ msg: "contact updated", updated });
